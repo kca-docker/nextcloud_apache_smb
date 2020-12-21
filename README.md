@@ -21,13 +21,13 @@ In order to run this container you'll need docker installed.
 The image could be created and started by the following command.  
 
 ```shell
-docker run -d bkhenloo/nextcloud_apache_smb
+$ docker run -d bkhenloo/nextcloud_apache_smb
 ```
 
 By default the working directory should be mounted. 
 
 ```shell
-docker run -d \
+§ docker run -d \
 -v <path>:/var/www/html:rw 
 bkhenloo/nextcloud_apache_smb
 ```
