@@ -99,8 +99,6 @@ $ systemctl daemon-reload
 $ systemctl start pod-nextcloud.service --now
 ```
 
-briezh/holdingnuts_server
-
 ## Find Us
 
 * [GitHub](https://github.com/BKhenloo/nextcloud_apache_smb)
