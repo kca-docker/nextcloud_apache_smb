@@ -81,6 +81,8 @@ $   podman pod create --name nextcloud --hostname nextcloud \
 * `<host_db_data>`  - MariaDB container database mount at host filesystem
 * `<host_nc_data>`  - Nextcloud container data mount at host filesystem 
 
+##### Using auto-update feature
+
 If using `podman` Version >=1.9, it should be possible to use the `auto-update` feature with `systemd`.
 
 First create the container (pod) than run `generate` command. The systemd service files will be created within the same folder.
