@@ -4,10 +4,10 @@
 # https://github.com/BKhenloo/nextcloud_apache_smb
 #
 
-# Pull base image.
+# Pull base image
 FROM nextcloud:apache
 
-# Install MariaDB.
+# Install smbclient
 RUN apt-get update && \
     apt-get install -y procps smbclient && \
     rm -rf /var/lib/apt/lists/* 
