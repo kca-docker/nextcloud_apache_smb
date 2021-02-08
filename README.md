@@ -60,6 +60,7 @@ mariadb
 ```shell
 $   podman pod create --name nextcloud --hostname nextcloud \
 &&  podman create --pod nextcloud --name nextcloud_db \
+    -l "io.containers.autoupdate=image" \
     -e MYSQL_ROOT_PASSWORD=<root passwd> \
     -e MYSQL_DATABASE=<db> \
     -e MYSQL_USER=<user> \
@@ -69,6 +70,7 @@ $   podman pod create --name nextcloud --hostname nextcloud \
     -v <host_db_data>:/var/lib/mysql:Z \
     -t docker.io/mariadb:latest \
 &&  podman create --pod nextcloud --name nextcloud_server \
+    -l "io.containers.autoupdate=image" \
     -v <host_nc_data>:/var/www/html:Z \
     -t docker.io/BKhenloo/nextcloud_apache_smb:latest
 ```
