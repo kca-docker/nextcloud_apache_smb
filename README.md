@@ -1,12 +1,31 @@
-# Nextcloud:apache +smb
+# Nextcloud:apache +smb <!-- omit in toc -->
 
 Original [nextcloud:apache](https://hub.docker.com/_/nextcloud/) image with SMB extension.
 
-## Getting Started
+# Content <!-- omit in toc -->
+- [Getting Started](#getting-started)
+  - [Prerequisities](#prerequisities)
+  - [Usage](#usage)
+    - [Container Parameters](#container-parameters)
+    - [Environment Variables](#environment-variables)
+    - [Volumes](#volumes)
+    - [Useful File Locations](#useful-file-locations)
+    - [Using Podman](#using-podman)
+      - [Using auto-update feature](#using-auto-update-feature)
+  - [Compose made easy](#compose-made-easy)
+- [Find Us](#find-us)
+- [Contributing](#contributing)
+- [Versioning](#versioning)
+- [Authors](#authors)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
+
+
+# Getting Started
 
 These instructions will cover usage information and for the docker container.
 
-### Prerequisities
+## Prerequisities
 
 In order to run this container you'll need docker installed.
 
@@ -14,9 +33,9 @@ In order to run this container you'll need docker installed.
 * [OS X](https://docs.docker.com/mac/started/)
 * [Linux](https://docs.docker.com/linux/started/)
 
-### Usage
+## Usage
 
-#### Container Parameters
+### Container Parameters
 
 The image could be created and started by the following command.  
 
@@ -32,9 +51,9 @@ By default the working directory should be mounted.
 bkhenloo/nextcloud_apache_smb
 ```
 
-#### Environment Variables
+### Environment Variables
 
-#### Volumes
+### Volumes
 
 * `/var/www/html/` - folder where all Nextcloud data lives
 
@@ -44,7 +63,7 @@ $ docker run -d \
 nextcloud
 ```
 
-#### Useful File Locations
+### Useful File Locations
 
 * `/var/lib/mysql` 						- MySQL / MariaDB Data
 * `/var/lib/postgresql/data`	- PostgreSQL Data
@@ -55,7 +74,7 @@ $ docker run -d \
 mariadb
 ```
 
-#### Using Podman
+### Using Podman
 
 ```shell
 $   podman pod create --name nextcloud --hostname nextcloud \
@@ -83,7 +102,7 @@ $   podman pod create --name nextcloud --hostname nextcloud \
 * `<host_db_data>`  - MariaDB container database mount at host filesystem
 * `<host_nc_data>`  - Nextcloud container data mount at host filesystem 
 
-##### Using auto-update feature
+#### Using auto-update feature
 
 If using `podman` Version >=1.9, it should be possible to use the `auto-update` feature with `systemd`.
 
@@ -101,26 +120,50 @@ $ systemctl daemon-reload
 $ systemctl start pod-nextcloud.service --now
 ```
 
-## Find Us
+## Compose made easy
+
+Let compose build the smb image. 
+
+**Compose Snipped**
+```yaml
+version: "3.8"
+
+services:
+  nextcloud:
+    image: localhost/nextcloud:apache-smb
+    #Dockerfile from: https://github.com/nextcloud/docker.git#master:.examples/dockerfiles/smb/apache
+    build: ./
+```
+
+**Used Dockerfile**
+```dockerfile
+FROM nextcloud:apache
+
+RUN apt-get update \
+&&  apt-get install -y procps smbclient \
+&&  rm -rf /var/lib/apt/lists/*
+```
+
+# Find Us
 
 * [GitHub](https://github.com/BKhenloo/nextcloud_apache_smb)
 
-## Contributing
+# Contributing
 
 Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
-## Versioning
+# Versioning
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the 
 [tags on this repository](https://github.com/BKhenloo/nextcloud_apache_smb/tags). 
 
-## Authors
+# Authors
 
 * **Briezh Khenloo** - *Initial work* - [B.Khenloo](https://github.com/BKhenloo)
 
 See also the list of [contributors](https://github.com/BKhenloo/holdingnuts_server/contributors) who 
 participated in this project.
 
-## License
+# License
 
-## Acknowledgments
+# Acknowledgments
