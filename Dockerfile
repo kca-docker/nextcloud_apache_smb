@@ -5,7 +5,7 @@
 #
 
 # Pull base image
-FROM nextcloud:stable-apache
+FROM nextcloud:apache
 
 # Install smbclient
 RUN apt-get update && \
