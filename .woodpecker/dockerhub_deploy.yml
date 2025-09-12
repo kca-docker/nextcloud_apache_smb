@@ -28,9 +28,9 @@ steps:
       dry_run: false
       repo: *repo
       tags: 
-        - "${NC_VERSION}"
+        - ${NC_VERSION}
       build_args:
-        - VERSION="${NC_VERSION}"
+        - VERSION=${NC_VERSION}
         - CREATED="${CI_PIPELINE_STARTED}"
         - REVISION="${CI_COMMIT_SHA}"
       registry: *dhub
