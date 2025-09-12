@@ -28,7 +28,7 @@ steps:
       dry_run: false
       repo: *repo
       tags: 
-        - ${NC_VERSION}
+        - ${NC_VERSION}-smb
       build_args:
         - VERSION=${NC_VERSION}
         - CREATED="${CI_PIPELINE_STARTED}"

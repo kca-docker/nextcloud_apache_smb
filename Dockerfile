@@ -22,7 +22,7 @@ LABEL org.opencontainers.image.url="https://hub.docker.com/r/bksolutions/nextclo
 
 ## 
 LABEL org.opencontainers.image.revision="${REVISION}" \
-      org.opencontainers.image.version="${VERSION}" \
+      org.opencontainers.image.version="${VERSION}-smb" \
       org.opencontainers.image.created="${CREATED}" 
 
 # Install smbclient
