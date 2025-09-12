@@ -1,3 +1,12 @@
+[![Docker Image Size](https://badgen.net/docker/size/bksolutions/nextcloud_apache_smb?icon=docker&label=image%20size)](https://hub.docker.com/r/bksolutions/nextcloud/)
+[![Docker Pulls](https://badgen.net/docker/pulls/bksolutions/nextcloud_apache_smb?icon=docker&label=pulls)](https://hub.docker.com/r/bksolutions/nextcloud/)
+[![Docker Stars](https://badgen.net/docker/stars/bksolutions/nextcloud_apache_smb?icon=docker&label=stars)](https://hub.docker.com/r/bksolutions/nextcloud/)
+![Github stars](https://badgen.net/github/stars/kca-docker/nextcloud_apache_smb?icon=github&label=stars)
+![Github forks](https://badgen.net/github/forks/kca-docker/nextcloud_apache_smb?icon=github&label=forks)
+![Github issues](https://img.shields.io/github/issues/kca-docker/nextcloud_apache_smb)
+![Github last-commit](https://img.shields.io/github/last-commit/kca-docker/nextcloud_apache_smb)
+
+
 # Nextcloud:apache +smb <!-- omit in toc -->
 
 Original [nextcloud:apache](https://hub.docker.com/_/nextcloud/) image with SMB extension.
