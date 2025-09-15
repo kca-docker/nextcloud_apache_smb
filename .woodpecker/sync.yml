@@ -15,6 +15,7 @@ when:
 matrix:
   BASE:
     - apache
+    - none
 
 steps:
   pull:
