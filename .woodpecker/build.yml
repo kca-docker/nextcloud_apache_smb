@@ -1,12 +1,10 @@
 ---
-clone:
-  git:
-    image: woodpeckerci/plugin-git
-    settings:
-      depth: 1
-      lfs: false
-      skip-verify: true
-      remote: https://github.com/nextcloud/docker.git
+#clone:
+#  git:
+#    image: woodpeckerci/plugin-git
+#    settings:
+#      depth: 1
+#      remote: https://github.com/nextcloud/docker.git
 
 variables:
   - &dhub https://index.docker.io/v1/
@@ -28,7 +26,7 @@ steps:
       - branch: main
     image: woodpeckerci/plugin-docker-buildx
     settings:
-      dockerfile: .examples/dockerfiles/${SUB}/${BASE}/Dockerfile
+      dockerfile: https://github.com/nextcloud/docker.git#master:.examples/dockerfiles/${SUB}/${BASE}/Dockerfile
       platforms: *arch
       dry_run: true
       repo: *repo
