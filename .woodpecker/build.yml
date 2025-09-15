@@ -1,4 +1,7 @@
 ---
+#depends_on:
+#  - pull
+
 matrix:
   BASE:
     - apache
@@ -9,6 +12,7 @@ matrix:
 
 when:
   - branch: main
+    event: [push]
 
 
 variables:
@@ -21,13 +25,15 @@ steps:
   prepare:
     image: alpine:latest
     commands:
-      - cp -avrf nextcloud/.examples/dockerfiles/${SUB}/${BASE}/. ./
+      - cp -avrf nextcloud/.examples/dockerfiles/${SUB}/${BASE}/. .
+    #  - sed -i -e "s|nextcloud:${BASE}|forgejo.home309.duckdns.org/containerimages/nextcloud:${BASE}"
+    #  - cat Dockerfile
   buildx:
     image: woodpeckerci/plugin-docker-buildx
     settings:
       dockerfile: *file
       platforms: *arch
-      dry_run: true
+      dry_run: false
       repo: *repo
       tags: 
         - ${BASE}-${SUB}
