@@ -15,13 +15,13 @@ when:
 matrix:
   BASE:
     - apache
-    - none
 
 steps:
   pull:
     image: quay.io/skopeo/stable:latest
+    entrypoint: /bin/bash
     commands:
-      - skopeo sync --dest-creds $${FORGEJO_CI_USER}:$${FORGEJO_CI_PASS} --src docker --dest docker docker.io/nextcloud:${BASE} forgejo.home309.duckdns.org/containerimages/nextcloud
-    #  - skopeo login --username $${FORGEJO_CI_USER} --password $${FORGEJO_CI_PASS} forgejo.home309.duckdns.org/containerimages/nextcloud
-    #  - skopeo sync --src docker --dest docker docker.io/nextcloud:${BASE} forgejo.home309.duckdns.org/containerimages/nextcloud
-    #  - skopeo logout forgejo.home309.duckdns.org
+    #  - skopeo sync --dest-creds $${FORGEJO_CI_USER}:$${FORGEJO_CI_PASS} --src docker --dest docker docker.io/nextcloud:${BASE} forgejo.home309.duckdns.org/containerimages/nextcloud
+      - skopeo login --username $${FORGEJO_CI_USER} --password $${FORGEJO_CI_PASS} forgejo.home309.duckdns.org/containerimages/nextcloud
+      - skopeo sync --src docker --dest docker docker.io/nextcloud:${BASE} forgejo.home309.duckdns.org/containerimages/nextcloud
+      - skopeo logout forgejo.home309.duckdns.org
