@@ -17,6 +17,11 @@ matrix:
     - apache
 
 steps:
+  verify:
+    image: forgejo.home309.duckdns.org/containerimages/nextcloud:${BASE}
+    commands:
+      - php occ --version
+
   sync:
     image: quay.io/skopeo/stable:latest
     commands:
