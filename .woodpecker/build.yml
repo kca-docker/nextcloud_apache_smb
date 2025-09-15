@@ -26,7 +26,7 @@ steps:
     image: alpine:latest
     commands:
       - cp -avrf nextcloud/.examples/dockerfiles/${SUB}/${BASE}/. .
-      - sed -e "s|nextcloud:${BASE}|forgejo.home309.duckdns.org/containerimages/nextcloud:${BASE}"
+      - sed -e "s|nextcloud:${BASE}|forgejo.home309.duckdns.org/containerimages/nextcloud:${BASE}|g"
       - cat Dockerfile
   buildx:
     image: woodpeckerci/plugin-docker-buildx
