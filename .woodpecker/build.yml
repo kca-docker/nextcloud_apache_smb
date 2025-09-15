@@ -21,7 +21,7 @@ steps:
   prepare:
     image: alpine:latest
     commands:
-      - cp -avrf nextcloud/.examples/dockerfiles/${SUB}/${BASE} .
+      - cp -avrf nextcloud/.examples/dockerfiles/${SUB}/${BASE}/. ./
   buildx:
     image: woodpeckerci/plugin-docker-buildx
     settings:
