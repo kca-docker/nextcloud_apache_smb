@@ -17,15 +17,9 @@ matrix:
     - apache
 
 steps:
-  login:
-    image: quay.io/skopeo/stable:latest
-    commands:
-      - login -u ${FORGEJO_CI_USER} -p ${FORGEJO_CI_PASS} forgejo.home309.duckdns.org/containerimages/nextcloud
   sync:
     image: quay.io/skopeo/stable:latest
     commands:
-      - sync \
-        --src docker \
-        --dest docker \
-        docker.io/nextcloud:${BASE} \
-        forgejo.home309.duckdns.org/containerimages/nextcloud
+      - login -u ${FORGEJO_CI_USER} -p ${FORGEJO_CI_PASS} forgejo.home309.duckdns.org/containerimages/nextcloud
+      - sync --src docker --dest docker docker.io/nextcloud:${BASE} forgejo.home309.duckdns.org/containerimages/nextcloud
+      - logout forgejo.home309.duckdns.org
