@@ -8,7 +8,6 @@
 
 variables:
   - &dhub https://index.docker.io/v1/
-  #- &arch linux/arm/v7,linux/arm64/v8,linux/amd64,linux/i386
   - &arch linux/amd64
   - &repo bksolutions/nextcloud
 
@@ -21,7 +20,7 @@ matrix:
     - smb
 
 steps:
-  build_n_push:
+  buildx:
     when:
       - branch: main
     image: woodpeckerci/plugin-docker-buildx
@@ -33,13 +32,13 @@ steps:
       tags: 
         - ${BASE}-${SUB}
       build_args:
-        - VERSION=${BASE}-${SUB}
+        - VERSION="${BASE}-${SUB}"
         - CREATED="${CI_PIPELINE_STARTED}"
         - REVISION="${CI_COMMIT_SHA}"
-      label:
-        org.opencontainers.image.revision="${CI_COMMIT_SHA}"
-        org.opencontainers.image.version="${BASE}-${SUB}"
-        org.opencontainers.image.created="${CI_PIPELINE_STARTED}"
+      #label:
+      #  org.opencontainers.image.revision="${CI_COMMIT_SHA}"
+      #  org.opencontainers.image.version="${BASE}-${SUB}"
+      #  org.opencontainers.image.created="${CI_PIPELINE_STARTED}"
       registry: *dhub
       logins:
         - registry: *dhub
