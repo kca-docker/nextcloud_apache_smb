@@ -17,8 +17,7 @@ matrix:
     - apache
 
 steps:
-  sync:
-    name: Sync nextcloud image from docker.io to local registry 
+ sync:
     image: quay.io/skopeo/stable:latest
     commands:
       - sync \
