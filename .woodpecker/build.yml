@@ -1,6 +1,11 @@
 ---
-#depends_on:
-#  - pull
+when:
+  - branch: main
+    event: [push]
+
+depends_on:
+  - sync
+
 
 matrix:
   BASE:
@@ -9,11 +14,6 @@ matrix:
     - full
     - cron
     - smb
-
-when:
-  - branch: main
-    event: [push]
-
 
 variables:
   - &file Dockerfile
