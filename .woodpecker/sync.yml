@@ -20,7 +20,7 @@ steps:
   login:
     image: quay.io/skopeo/stable:latest
     commands:
-      - login -u ${FORGEJO_CI_USER} -p ${FORGEJO_CI_PASS}
+      - login -u ${FORGEJO_CI_USER} -p ${FORGEJO_CI_PASS} forgejo.home309.duckdns.org/containerimages/nextcloud
   sync:
     image: quay.io/skopeo/stable:latest
     commands:
