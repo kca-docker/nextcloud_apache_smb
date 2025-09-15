@@ -20,7 +20,6 @@ steps:
   sync:
     image: quay.io/skopeo/stable:latest
     commands:
-      - echo ${FORGEJO_CI_USER}
-      - skopeo login --username ${FORGEJO_CI_USER} --password ${FORGEJO_CI_PASS} forgejo.home309.duckdns.org/containerimages/nextcloud
-      - skopeo sync --src docker --dest docker docker.io/nextcloud:${BASE} forgejo.home309.duckdns.org/containerimages/nextcloud
-      - skopeo logout forgejo.home309.duckdns.org
+    #  - skopeo login --username ${FORGEJO_CI_USER} --password ${FORGEJO_CI_PASS} forgejo.home309.duckdns.org/containerimages/nextcloud
+      - skopeo sync --dest-registry-token a4ce451120bebe93ba11a77af48b59957a506794 --src docker --dest docker docker.io/nextcloud:${BASE} forgejo.home309.duckdns.org/containerimages/nextcloud
+    #  - skopeo logout forgejo.home309.duckdns.org
